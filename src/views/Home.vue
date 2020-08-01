@@ -1,18 +1,18 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <div class="home"></div>
 </template>
-
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
-
+// import request from "../request/http";
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld,
+  name: "Home",
+  components: {},
+  mounted() {
+    this.$request.$post("/addList", { a: 1 }).then((res) => {
+      console.log("post", res);
+    });
+    this.$request.$get("/getList", { b: 1 }).then((res) => {
+      console.log("get", res);
+    });
   },
 };
 </script>
